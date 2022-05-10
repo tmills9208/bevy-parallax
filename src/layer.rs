@@ -35,7 +35,7 @@ impl Default for LayerData {
     fn default() -> Self {
         Self {
             speed: 1.0,
-            speed_y: 0.0,
+            speed_y: 1.0,
             path: "".to_string(),
             tile_size: Vec2::ZERO,
             cols: 1,
