@@ -1,3 +1,11 @@
+/*
+Project: bevy-parallax
+File: parallax.rs
+Version: 0.1.2
+Revisions:
+    tmills9208: Added support for y scrolling, along with updating relevant structs to adjust the y speed appropriately. Default for y-speed will be 0 to hopefully prevent breaking changes
+*/
+
 use crate::layer;
 use bevy::prelude::*;
 
@@ -5,6 +13,8 @@ use bevy::prelude::*;
 pub struct ParallaxMoveEvent {
     /// Speed to move camera (x direction)
     pub camera_move_speed: f32,
+    /// Speed to move camera (y direction)
+    pub camera_move_speed_y: f32,
 }
 
 /// Resource for managing parallax
@@ -79,7 +89,7 @@ impl ParallaxResource {
             entity_commands
                 .insert(Name::new(format!("Parallax Layer ({})", i)))
                 .insert(Transform {
-                    translation: Vec3::new(layer.position.x, layer.position.y, layer.z),
+                    translation: Vec3::new(0.0, 0.0, layer.z),
                     scale: Vec3::new(layer.scale, layer.scale, 1.0),
                     ..Default::default()
                 })

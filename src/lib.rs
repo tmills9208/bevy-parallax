@@ -1,3 +1,11 @@
+/*
+Project: bevy-parallax
+File: lib.rs
+Version: 0.1.2
+Revisions:
+    tmills9208: Added support for y scrolling, along with updating relevant structs to adjust the y speed appropriately. Default for y-speed will be 0 to hopefully prevent breaking changes
+*/
+
 use bevy::prelude::*;
 
 pub mod layer;
@@ -41,8 +49,10 @@ fn follow_camera_system(
     if let Some(mut camera_transform) = camera_query.iter_mut().next() {
         for event in move_events.iter() {
             camera_transform.translation.x += event.camera_move_speed;
+            camera_transform.translation.y += event.camera_move_speed_y;
             for (mut layer_transform, layer) in layer_query.iter_mut() {
                 layer_transform.translation.x += event.camera_move_speed * layer.speed;
+                layer_transform.translation.y += event.camera_move_speed_y * layer.speed_y;
             }
         }
     }
