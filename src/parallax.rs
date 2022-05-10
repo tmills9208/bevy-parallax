@@ -152,6 +152,7 @@ impl ParallaxResource {
             // Add layer component to entity
             entity_commands.insert(layer::LayerComponent {
                 speed: layer.speed,
+                speed_y: layer.speed_y,
                 texture_count,
                 transition_factor: layer.transition_factor,
             });
