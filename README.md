@@ -1,3 +1,7 @@
+# fork info
+
+adding y scrolling support, minimal implementation so far with the respectful changes needed to structs and the move_camera system
+
 # bevy-parallax
 
 A parallax plugin for the [Bevy Engine](https://bevyengine.org/). This plugin allows you to easily create scrolling parallax backgrounds for your games.
