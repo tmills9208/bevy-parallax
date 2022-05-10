@@ -64,5 +64,4 @@ pub struct LayerComponent {
 pub struct LayerTextureComponent {
     /// Width of the texture
     pub width: f32,
-    pub height: f32,
 }
